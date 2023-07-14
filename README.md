@@ -17,4 +17,8 @@ The "not_lf_state" and "lf_state" plots show mean year-to-year percent changes i
 
 Broken down into age groups, men in the 65+ category saw the smallest change in labor force participation, with largely consistent numbers in the labor force and not in the labor force, as seen in the "lfp_age_group" plot. For all three age group categories (25-45, 45-65, 65+), the number of observations of not in the labor force is fairly stable over time. The 25-45 and 45-65 categories indicate a jump in the labor force around 2001, consistent with the change in survey sampling. In the post 2001 era, there is a downtun in the number of 25-45 yearo olds in the labor force and an upturn in the number of 45-65 year olds in the labor force. There is no observable, opposite reaction in the "not in the labor force" category, indicating an aging population. 
 
+(c) What factors do you think are driving these patterns? What evidence might you want to assemble to test these hypotheses if you were to investigate them further?
+
+As noted above, many of the distinct changes in observed labor force participation can be attributed to population shifts and changes in survey sampling. Additionally, changes in survey models make it difficult to compare changes among racial and education groups, as data collection and variable categories changed over time. With additional time and information, it would be valuable to recategorize and standardize racial groups ("race"), education levels ("educ"), and employment status ("empstat"). 
+
 
