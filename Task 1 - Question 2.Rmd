@@ -1,0 +1,119 @@
+---
+title: "Task 1 - Question 2"
+author: "Meredith Gavin"
+date: "7/14/2023"
+output: pdf_document
+---
+
+# PREP WORK
+
+## Libraries
+
+```{r}
+library(haven)
+library(dplyr)
+library(tidyverse)
+library(magrittr)
+library(readr)
+library(ggplot2)
+library(lubridate)
+```
+
+## Set Working Directory
+
+```{r}
+setwd("~/Desktop/pre_doc_task_1")
+```
+
+
+## Load Data
+
+```{r}
+ma_enrollment <- read_csv("scp-1205.csv", col_names = FALSE)
+View(ma_enrollment)
+```
+
+## Data Overview
+
+```{r}
+str(ma_enrollment)
+```
+
+## QUESTION 2: DATA MANIPULATION
+
+### Rename Headers
+
+```{r}
+ma_enrollment <- ma_enrollment %>%
+  rename(countyname = X1,
+         state = X2,
+         healthplanname = X3,
+         typeofplan = X4,
+         countyssa = X5,
+         eligibles = X6,
+         enrollees = X7,
+         penetration = X8,
+         ABrate = X9)
+```
+
+
+
+### Change NAs to 0 for  eligibles, enrollees, and penetration variables and remove Purto Rico and Guam
+
+```{r}
+ma_enrollment <- ma_enrollment %>%
+  mutate_at(c("eligibles", "enrollees", "penetration"),
+            as.double) %>% # make variables numeric
+  mutate_at(c("eligibles", "enrollees", "penetration"),
+            ~replace_na(., 0)) %>% # change NAs to zeroes
+  filter(state != "GU" & state != "PR") # filter out Puerto Rico and Guam
+```
+
+### 
+
+```{r}
+# create numberofplans1 variable
+ma_enrollment_numberofplans1 <- ma_enrollment %>%
+  filter(enrollees > 10) %>%
+  group_by(state, countyname) %>%
+  summarise(numberofplans1 = n()) %>%
+  ungroup()
+
+```
+
+```{r}
+#create numberofplans2 variable
+
+ma_enrollment_numberofplans2 <- 
+  ma_enrollment %>% 
+  filter(penetration > 0.5) %>%
+  group_by(state, countyname) %>%
+  summarise(numberofplans2 = n())
+```
+
+### Merge new variables to master dataframe
+
+```{r}
+ma_enrollment <- ma_enrollment %>% 
+  left_join(ma_enrollment_numberofplans1, 
+            by = c("state", "countyname")) %>%
+  left_join(ma_enrollment_numberofplans2, 
+            by = c("state", "countyname"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
