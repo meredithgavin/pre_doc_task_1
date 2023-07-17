@@ -1,5 +1,7 @@
 # Task 1 from predoc.org
 
+Source: https://predoc.org/-/media/project/chicago-booth/consortium/predoc/documents/task_overview.pdf
+
 Labor Force Participation from 1976 to 2015
 Data Source: U.S. Current Population Survey (CPS)
 
