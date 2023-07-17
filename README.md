@@ -1,5 +1,4 @@
-# pre_doc_task_1
-Task 1 from predoc.org
+# Task 1 from predoc.org
 
 Labor Force Participation from 1976 to 2015
 Data Source: U.S. Current Population Survey (CPS)
